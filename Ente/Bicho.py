@@ -1,0 +1,67 @@
+from Ente.Ente import Ente
+from Estado.Muerto import Muerto
+from Modo.Agresivo import Agresivo
+import random
+
+class Bicho(Ente):
+
+    def __init__(self):
+        super().__init__()
+        self.modo = None
+        self.numero_identificador = None
+    def set_posicion(self, pos):
+        self.posicion = pos
+        for observador in self.obsPosition:
+            observador.mostrar_bicho(self)
+
+    def set_corazones(self, corazones):
+        self.corazones = corazones
+        print("Corazones de ", str(self), ":", str(self.corazones))
+        for observador in self.obsCorazones: 
+            observador.vidas_bicho(self)
+
+    def buscar_enemigo(self):
+        return self.juego.buscar_personaje(self)
+
+    def actuar(self):
+        while self.esta_vivo():
+            self.estado.actuar(self)
+
+    def obtener_orientacion_aleatoria(self):
+        return self.posicion.obtener_orientacion_aleatoria()
+    
+    def puede_actuar(self):
+        self.modo.actuar(self)
+
+    def ente_muere(self):
+        self.fallecido()
+
+    def fallecido(self):
+        self.estado = Muerto()
+        self.fenece()
+        self.juego.muere_bicho()
+
+    def fenece(self):
+        print(str(self), " fallece.")
+        self.corazones = 0
+        self.estado = Muerto()
+
+    def cambiar_modo(self):
+        entity = self.juego.buscar_bicho(self)
+        if entity is not None:
+            numero_aleatorio = random.randint(1, 10)
+
+            if numero_aleatorio > 9:
+                self.modo = Agresivo()
+            
+                for observador in self.obsPosition:
+                    observador.mostrar_bicho(self)
+
+    def es_bicho(self):
+        return True
+    
+    def __str__(self):
+        return "Bicho " + str(self.modo) + " " + str(self.numero_identificador)
+    
+    def __repr__(self):
+        return "Bicho" + str(self.modo) + str(self.numero_identificador)
