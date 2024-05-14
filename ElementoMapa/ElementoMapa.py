@@ -14,18 +14,18 @@ class ElementoMapa(ABC):
     def aceptar(self,visitor):
         pass
 
-    def addCommand(self,comando):
+    def addCommand(self, command):
         for c in self.commands:
-            if c.equals(comando):
+            if c.equals(command):
                 return
-        comando.receptor = self
-        self.commands.append(comando)
+        command.receiver = self
+        self.commands.append(command)
 
-    def obtenerComandos(self,ente):
+    def obtenerComandos(self):
         return self.commands
     
-    def deleteCommand(self,comando):
-        self.commands.remove(comando)
+    def deleteCommand(self, command):
+        self.commands.remove(command)
 
     def recorrer(self, fn):
         fn(self)
