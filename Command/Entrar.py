@@ -1,7 +1,7 @@
-from Command.Command import Comando
+from Command.Command import Command
 
 
-class Entrar(Comando):
+class Entrar(Command):
     
     def ejecutar(self, obj):
         self.receiver.entrar(obj)

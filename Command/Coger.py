@@ -1,7 +1,7 @@
-from Command.Command import Comando
+from Command.Command import Command
 
 
-class Abrir(Comando):
+class Abrir(Command):
     
     def ejecutar(self, obj):
         self.receiver.coger(obj)

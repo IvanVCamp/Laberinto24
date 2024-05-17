@@ -1,5 +1,5 @@
 from abc import ABC, abstractmethod
-class Comando(ABC):
+class Command(ABC):
     
     def __init__(self):
         self.receiver = None
