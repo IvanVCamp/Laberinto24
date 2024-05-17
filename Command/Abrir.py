@@ -4,7 +4,7 @@ from Command.Command import Comando
 class Abrir(Comando):
     
     def ejecutar(self, obj):
-        self.receiver.abrir(obj)
+        self.receiver.open(obj)
     
     def esAbrir(self):
         return True

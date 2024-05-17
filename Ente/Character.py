@@ -5,9 +5,9 @@ class Personaje(Ente):
     
     def __init__(self):
         super().__init__()
-        self.nick=None
-        self.bolsa=None
-        self.cuerpo = Cuerpo()
+        self.seudonimo=None
+        self.mochila=None
+        self.cuerpo=Cuerpo()
 
     def obtenerComandosCuerpo(self):
         return self.cuerpo.obtenerComandos()
@@ -48,7 +48,7 @@ class Personaje(Ente):
         return True
     
     def __str__(self):
-        return "Personaje " + str(self.nick)
+        return "Soy " + str(self.seudonimo)
     
     def __repr__(self):
-        return "Personaje " + str(self.nick)
+        return "Soy " + str(self.seudonimo)
