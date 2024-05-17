@@ -1,7 +1,7 @@
 from ElementoMapa.ElementoMapa import ElementoMapa
 import random
 
-class Contenedor (ElementoMapa):
+class Container (ElementoMapa):
 
     def __init__(self, n):
         super().__init__()
