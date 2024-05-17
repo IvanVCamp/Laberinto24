@@ -12,4 +12,4 @@ class HabitacionBomba(Habitacion):
             print("¡BOOOOOOOOOOM! La bomba ha explotado...")
             self.activa = False
         else:
-            print("Acabas de acceder a la habitación [{#",self.num, "#}]")
+            print("Acabas de acceder a la habitación [{#",self.num, "#}] \n Te rogamos que no rompas nada.")
