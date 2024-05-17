@@ -19,7 +19,7 @@ class Laberinto(Container):
             ch.recorrer()
 
     def accept(self, visitante):
-        print("Toca recorrer laberinto.")
+        print("Recorrer laberinto.")
         for ch in self.objChildren:
             ch.accept(visitante)
 
@@ -30,5 +30,7 @@ class Laberinto(Container):
         hijos = self.objChildren
         
         for h in hijos:
-            detalle = detalle + str(h) + "\n *************** \n"
+            detalle = detalle + str(h) + "\n ***************"
+    
         return detalle
+
