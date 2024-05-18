@@ -1,11 +1,9 @@
-from ElementoMapa.ElementoMapa import ElementoMapa
 from Command.Usar import Usar
 from abc import ABC,abstractmethod
 
-class Artefacto(ElementoMapa,ABC):
+class Artefacto(ABC):
     
     def __init__(self):
-        super().__init__()
         self.ref = None
         self.obsPos = []
         
