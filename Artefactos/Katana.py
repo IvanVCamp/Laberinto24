@@ -3,7 +3,7 @@ from Command.Usar import Usar
 from Command.Soltar import Soltar
 
 
-class Espada(Artefacto):
+class Katana(Artefacto):
 
     def __init__(self):
         super().__init__()
