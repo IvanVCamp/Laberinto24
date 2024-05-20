@@ -1,17 +1,17 @@
 from Orientaciones.Orientacion import Orientacion
 
-class Norte(Orientacion):
+class Noreste(Orientacion):
     __instance = None
 
     def __init__(self):
-        if Norte.__instance is None:
-            Norte.__instance = self
+        if Noreste.__instance is None:
+            Noreste.__instance = self
     
     def obtenerInstancia():
-        if Norte.__instance is None:
-            Norte.__instance = Norte()
+        if Noreste.__instance is None:
+            Noreste.__instance = Noreste()
         
-        return Norte.__instance
+        return Noreste.__instance
     
     def obtenerElementoEn(self,cont):
         return cont.norte

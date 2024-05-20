@@ -10,4 +10,4 @@ class Abrir(Command):
         return True
     
     def __str__(self):
-        return "Un '¡Ciérrate, sésamo! en toda regla.'"
+        return "Un '¡Ciérrate, sésamo!' en toda regla."

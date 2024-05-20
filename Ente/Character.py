@@ -1,7 +1,7 @@
 from Ente.Ente import Ente
 from Cuerpo.Cuerpo import Cuerpo
 
-class Personaje(Ente):
+class Character(Ente):
     
     def __init__(self):
         super().__init__()

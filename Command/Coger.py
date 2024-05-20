@@ -1,7 +1,7 @@
 from Command.Command import Command
 
 
-class Abrir(Command):
+class Coger(Command):
     
     def ejecutar(self, obj):
         self.receiver.coger(obj)

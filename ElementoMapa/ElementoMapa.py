@@ -43,7 +43,7 @@ class ElementoMapa(ABC):
         return False
 
     
-    def esEspada(self):
+    def esKatana(self):
         return False
     
 
@@ -53,10 +53,10 @@ class ElementoMapa(ABC):
     def esTunel(self):
         return False
     
-    def esBolsa(self):
+    def esMochila(self):
         return False
     
-    def esBanana(self):
+    def esBistec(self):
         return False
     
     def esEscudo(self):
