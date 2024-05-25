@@ -6,8 +6,8 @@ class Vivo(Estado):
     def actua(self,unBicho):
         unBicho.puedeActuar()
 
-    def enteEsAtacadoPor(self,atacado,atacante):
-        atacado.puedeSerAtacadoPor(atacante)
+    def enteEsAtacadoPor(self,victima,agresor):
+        victima.puedeSerAtacadoPor(agresor)
 
     def estaVivo(self):
         return True

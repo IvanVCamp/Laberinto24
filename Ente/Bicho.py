@@ -30,7 +30,7 @@ class Bicho(Ente):
     def obtener_orientacion_aleatoria(self):
         return self.posicion.obtener_orientacion_aleatoria()
     
-    def puede_actuar(self):
+    def puedeActuar(self):
         self.modo.actuar(self)
 
     def ente_muere(self):

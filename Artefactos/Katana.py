@@ -7,7 +7,8 @@ class Katana(Artefacto):
 
     def __init__(self):
         super().__init__()
-    
+        self.poder = 10
+
     def esKatana(self):
         return True
 

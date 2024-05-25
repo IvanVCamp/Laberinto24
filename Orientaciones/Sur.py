@@ -13,7 +13,7 @@ class Sur(Orientacion):
         
         return Sur.__instance
     
-    def obtenerElementoEn(self,cont):
+    def getElement(self,cont):
         return cont.Sur
     
     def calcularPosicionDesde(self,forma):
@@ -24,15 +24,15 @@ class Sur(Orientacion):
         print("Has puesto un pie en el territorio Tartessos.")
         forma.Sur.aceptar(visitor)
     
-    def ponerElementoEn(self,em,cont):
+    def putElementOn(self,em,cont):
         cont.Sur = em
     
     def moverA(self,ente):
         cont = ente.posicion.forma
         cont.Sur.entrar(ente)
 
-    def obtenerComandosDe(self,forma,ente):
-        return forma.Sur.obtenerComandos(ente)
+    def getCommands(self,forma,ente):
+        return forma.Sur.getCommands(ente)
 
     def recorrerEn(self,cont,func):
         cont.Sur.recorrer(func)

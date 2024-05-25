@@ -17,7 +17,7 @@ class Puerta(ElementoMapa):
 
     def entrar(self,ente):
         if self.estaAbierta():
-            if ente.pos == self.lado1:
+            if ente.posicion == self.lado1:
                 self.lado2.entrar(ente)
             else:
                 self.lado1.entrar(ente)
@@ -35,14 +35,14 @@ class Puerta(ElementoMapa):
         
         self.visited=True
         
-        if obj.num == self.lado1.num:
+        if obj.ref == self.lado1.ref:
         
-            self.lado2.setCoord(coord)
-            self.lado2.hacerCalculo()
+            self.lado2.getPunto(coord)
+            self.lado2.estimarPosicion()
         
         else:
-            self.lado1.setCoord(coord)
-            self.lado1.calcularPosicion()
+            self.lado1.getPunto(coord)
+            self.lado1.estimarPosicion()
 
     def aceptar(self,visitor):
         print("Visitando una puerta")

@@ -21,22 +21,22 @@ class Character(Ente):
     def setPosicion(self, pos):
         self.posicion= pos
         for obs in self.obsPosition:
-            obs.mostrarCuerpo()
+            obs.visualCuerpo()
     
     def setVidas(self, vida):
         self.vidas = vida
         print("Vidas de ",str(self),":",str(self.vidas))
         for obs in self.obsCorazones:
-            obs.mostrarVidasPersonaje()
+            obs.visualcorazoneshero()
     
     def enteMuere(self):
         self.juego.personajeMuere()
 
     def buscarEnemigo(self):
-        return self.juego.buscarBicho()
+        return self.juego.searchAntagonist()
     
     def obtenerComandos(self,ente):
-        return self.posicion.obtenerComandos(self)
+        return self.posicion.getCommands(self)
     
     def esPersonaje(self):
         return True

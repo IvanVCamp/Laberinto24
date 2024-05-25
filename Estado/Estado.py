@@ -4,7 +4,7 @@ class Estado(ABC):
     def actua(unBicho):
         pass
     
-    def enteEsAtacadoPor(self,atacado,atacante):
+    def esAtacadoPor(self,atacado,atacante):
         pass
     
     def estaVivo(self):

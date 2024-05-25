@@ -3,7 +3,7 @@ from Estado.Estado import Estado
 class Cerrada(Estado):
     
     def abrir(self,gate):
-        gate.tryOpen()
+        gate.abrir()
 
     def estaAbierta(self):
         return False

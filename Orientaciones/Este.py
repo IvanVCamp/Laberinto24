@@ -16,7 +16,7 @@ class Este(Orientacion):
     def obtenerElementoEn(self,cont):
         return cont.este
     
-    def calcularPosicionDesde(self,forma):
+    def verPosicion(self,forma):
         unPunto = (forma.punto[0]+1,forma.punto[1])
         forma.este.calcularPosicionDesde(forma,unPunto)
     
@@ -24,15 +24,15 @@ class Este(Orientacion):
         print("Bienvenido a la Terreta.")
         forma.este.aceptar(visitor)
     
-    def ponerElementoEn(self,em,cont):
+    def putElementOn(self,em,cont):
         cont.este = em
     
     def moverA(self,ente):
         cont = ente.posicion.forma
         cont.este.entrar(ente)
 
-    def obtenerComandosDe(self,forma,ente):
-        return forma.este.obtenerComandos(ente)
+    def getCommands(self,forma,ente):
+        return forma.este.getCommands(ente)
 
     def recorrerEn(self,cont,func):
         cont.este.recorrer(func)

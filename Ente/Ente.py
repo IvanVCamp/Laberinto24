@@ -40,7 +40,7 @@ class Ente(ABC):
             unEnte.esAtacadoPor(self)
     
     def esAtacadoPor(self,unEnte):
-        self.estado.enteEsAtacadoPor(self,unEnte)
+        self.estado.esAtacadoPor(self,unEnte)
 
     def puedeSerAtacadoPor(self,unEnte):
         self.recalcularVidas(unEnte)
@@ -49,25 +49,17 @@ class Ente(ABC):
 
     def recalcularVidas(self, ente):
         poder_de_ataque = ente.poder
-        defensa = 0
 
         if ente.esPersonaje():
-            arma = ente.obtenermDerecha()
-            if arma:
-                poder_de_ataque += arma.obtenerPoder()
+            arma = ente.obtenerArma()
+            poder_de_ataque += arma.poder
 
-        if self.esPersonaje():
-            objeto_defensivo = self.obtenermIzquierda()
-            if objeto_defensivo:
-                defensa += objeto_defensivo.obtenerDefensa()
-
-        vidas_resultantes = self.corazones + defensa - poder_de_ataque
+        vidas_resultantes = self.corazones - poder_de_ataque
         vidas_resultantes = max(0, min(self.corazones, vidas_resultantes))
-
         self.setCorazones(vidas_resultantes)
     
     def verificarEstado(self):
-        if self.vidas == 0:
+        if self.corazones == 0:
             return True
         else:
             return False

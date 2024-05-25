@@ -13,26 +13,26 @@ class Noreste(Orientacion):
         
         return Noreste.__instance
     
-    def obtenerElementoEn(self,cont):
+    def getElement(self,cont):
         return cont.noreste
     
     def calcularPosicionDesde(self,forma):
         unPunto = (forma.punto[0]+1,forma.punto[1]-1)
-        forma.noreste.calcularPosicionDesde(forma,unPunto)
+        forma.noreste.verPosicion(forma,unPunto)
     
     def aceptar(self,visitor,forma):
         print("Donde abunda la degeneración y el separatismo.")
         forma.noreste.aceptar(visitor)
     
-    def ponerElementoEn(self,em,cont):
+    def putElementOn(self,em,cont):
         cont.noreste = em
     
     def moverA(self,ente):
         cont = ente.posicion.forma
         cont.noreste.entrar(ente)
 
-    def obtenerComandosDe(self,forma,ente):
-        return forma.noreste.obtenerComandos(ente)
+    def getCommands(self,forma,ente):
+        return forma.noreste.getCommands(ente)
 
     def recorrerEn(self,cont,func):
         cont.noreste.recorrer(func)

@@ -285,7 +285,7 @@ class Interfaz():
             n = self.hero
         else:
             n = cont
-        for c in n.getCommand(self.hero):
+        for c in n.getCommands(self.hero):
             ex = len(str(c))*12
             self.orComd.append((pygame.draw.rect(self.window, (255, 255, 0), (a, b, ex, 50)), c))
             self.window.blit(pygame.font.Font(None, 32).render(str(c), True, (0,0,0)),(a + 10,b + 10))
