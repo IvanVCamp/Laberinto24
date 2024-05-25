@@ -13,10 +13,10 @@ class Katana(Artefacto):
 
     def aceptar(self, vst):
         print("Visitar katana")
-        vst.visitarEspada(self)
+        vst.visitarKatana(self)
     
     def usar(self, o):
-        o.setEspada(self)
+        o.setKatana(self)
         o.mochila.usado(self)
 
         for c in self.comandos:
@@ -27,14 +27,14 @@ class Katana(Artefacto):
                 self.deleteCommand(c)
     
     def desequipar(self,ente):
-        ente.setEspada(None)
+        ente.setKatana(None)
         ente.mochila.addArtefacto(self)
         
         firstAction = Usar()
-        firstAction.receptor= self
+        firstAction.receiver= self
 
         secondAction = Soltar()
-        secondAction.receptor = self
+        secondAction.receiver = self
 
         self.addCommand(firstAction)
         self.addCommand(secondAction)

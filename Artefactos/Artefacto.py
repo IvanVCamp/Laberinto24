@@ -1,7 +1,8 @@
 from Command.Usar import Usar
+from ElementoMapa.ElementoMapa import ElementoMapa
 from abc import ABC,abstractmethod
 
-class Artefacto(ABC):
+class Artefacto(ElementoMapa, ABC):
     
     def __init__(self):
         self.ref = None
@@ -9,15 +10,15 @@ class Artefacto(ABC):
         
     def entrar(self, obj):
         self.padre.objChildren.remove(self)
-        obj.mochila.addObj(self)
+        obj.mochila.addArtefacto(self)
 
         for com in self.commands:
             if com.esCoger:
                 self.deleteCommand(com)
 
-        self.agregarComando(Usar())
-        for obs in self.observadoresPosicion:
-            obs.mostrarObjeto(self)
+        self.addCommand(Usar())
+        for obs in self.obsPos:
+            obs.visualObjeto(self)
 
     def agregarObservadorPosicion(self, observador):
         self.obsPos.append(observador)

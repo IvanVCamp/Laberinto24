@@ -12,17 +12,11 @@ class Character(Ente):
     def obtenerComandosCuerpo(self):
         return self.cuerpo.obtenerComandos()
     
-    def obtenerEscudo(self):
-        return self.cuerpo.obtenerEscudo()
-    
     def obtenerEspada(self):
         return self.cuerpo.obtenerArma()
-    
-    def setEscudo(self,obj):
-        self.cuerpo.setEscudo(obj)
 
-    def setEspada(self,obj):
-        self.cuerpo.setEspada(obj)
+    def setKatana(self,obj):
+        self.cuerpo.setKatana(obj)
 
     def setPosicion(self, pos):
         self.posicion= pos
