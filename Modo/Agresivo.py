@@ -3,7 +3,7 @@ from Modo.Modo import Modo
 class Agresivo(Modo):
     
     def atacar(self,unBicho):
-        unBicho.atacar()
+        unBicho.actuar()
     
     def esAgresivo(self):
         return True

@@ -13,8 +13,8 @@ class Modo():
         time.sleep(2)
 
     def caminar(self,unBicho):
-        posicion = unBicho.obtenerOrientacionAleatoria()
-        unBicho.moverA(posicion)
+        posicion = unBicho.obtener_orientacion_aleatoria()
+        unBicho.irA(posicion)
 
     @abstractmethod
     def atacar(self,unBicho):

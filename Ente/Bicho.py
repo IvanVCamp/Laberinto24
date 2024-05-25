@@ -46,7 +46,7 @@ class Bicho(Ente):
         self.corazones = 0
         self.estado = Muerto()
 
-    def cambiar_modo(self):
+    def cambiar(self):
         entity = self.juego.buscar_bicho(self)
         if entity is not None:
             numero_aleatorio = random.randint(1, 10)

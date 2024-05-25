@@ -8,7 +8,7 @@ class Container (ElementoMapa):
         self.ref = n
         self.objChildren = []
         self.form = None
-        self.alcance = None
+        self.extent = None
 
     def recorrer(self, order):
         order(self)
@@ -26,7 +26,7 @@ class Container (ElementoMapa):
     def setPunto(self,punto):
         self.form.point = punto
 
-    def getAlcance(self):
+    def getExtent(self):
         return self.form.alcance
     
     def setExtent(self, alc):

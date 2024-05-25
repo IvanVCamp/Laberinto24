@@ -36,24 +36,24 @@ class Interfaz():
     def startJuego(self,json,nombre):
         director = Director()
         director.procesar(json)
-        self.juego = director.obtenerJuego()
+        self.juego = director.getJuego()
         
         hero = Character()
-        hero.name = nombre
+        hero.seudonimo = nombre
         hero.subscribePosicion(self)
         hero.subscribeVida(self)
         
         self.juego.addCharacter(hero)
-        self.hero = self.juego.hero
+        self.hero = self.juego.prota
 
         h1= self.juego.getHab(1)
         h1.setPunto((0,0))
-        h1.calcularPosicion()
+        h1.estimarPosicion()
         
         self.redimensionar()
         
         maxCord, maxOrd = float('-inf'), float('-inf')
-        for hijo in self.juego.laberinto.hijos:
+        for hijo in self.juego.laberinto.objChildren:
             punto = hijo.getPunto()
             if punto[0] > maxCord:
                 maxCord = punto[0]
@@ -79,8 +79,8 @@ class Interfaz():
     def redimensionar(self):
         cordMin, ordMin = float('inf'), float('inf')
 
-        for hijo in self.juego.laberinto.hijos:
-            p = hijo.obtenerPunto()
+        for hijo in self.juego.laberinto.objChildren:
+            p = hijo.getPunto()
             if p[0] < cordMin:
                 cordMin = p[0]
             if p[1] < ordMin:
@@ -88,8 +88,8 @@ class Interfaz():
 
         newCord, newOrd = abs(cordMin), abs(ordMin)
 
-        for hijo in self.juego.laberinto.hijos:
-            x, y = hijo.gePoint()
+        for hijo in self.juego.laberinto.objChildren:
+            x, y = hijo.getPunto()
             hijo.setPunto((x + newCord, y + newOrd))
 
     
@@ -116,19 +116,19 @@ class Interfaz():
                 if keys[pygame.K_LEFT]:
                     self.hero.irAlOeste()
                 if keys[pygame.K_b]:
-                    self.juego.lanzarnpc()
+                    self.juego.lanzarBichos()
                 if keys[pygame.K_p]:
-                    self.juego.opengates()
+                    self.juego.openDoors()
                 if keys[pygame.K_a]:
                     self.hero.atacar()
                 if event.type == pygame.MOUSEBUTTONDOWN:
                     pos = pygame.mouse.get_pos()
                     if self.open.collidepoint(pos):
-                        self.juego.opengates()
+                        self.juego.openDoors()
                     if self.close.collidepoint(pos):
-                        self.juego.cerrargates()
+                        self.juego.cerrarPuertas()
                     if self.orInitialize.collidepoint(pos):
-                        self.juego.lanzarnpc()
+                        self.juego.lanzarBichos()
                     if self.rectBIn.collidepoint(pos):
                         visualMochila = not visualMochila
                         visualCuerpo = False
@@ -218,13 +218,13 @@ class Interfaz():
         self.visualhero()
         self.visualcorazoneshero()
         self.hero.mochila.observarmochila(self)
-        self.hero.cuerpo.agregarObservadoresCuerpo(self)
+        self.hero.cuerpo.addBodyObservers(self)
         self.visualmochila(self.hero.mochila)
 
         for npc in self.juego.npc:
             print(npc.corazones)
-            npc.suscribirPosicion(self)
-            npc.suscribirVida(self)
+            npc.subscribePosicion(self)
+            npc.subscribeVida(self)
             self.visualnpc(npc)
 
         # Bucle principal del juego
@@ -233,7 +233,7 @@ class Interfaz():
             renderizar_objetos()
 
         # Finalizar NPCs al cerrar la ventana
-        self.juego.terminarnpc()
+        self.juego.terminarBichos()
 
         # Mostrar imágenes de final del juego
         heroe = cargar_imagen("GUI/img/prota.png", (self.windw // 2, self.windw // 2))
@@ -246,7 +246,7 @@ class Interfaz():
                     running = False
 
             self.window.fill(colorFondo)
-            if self.juego.ganahero:
+            if self.juego.hasGanado:
                 self.window.blit(heroe, (100, 100))
                 self.window.blit(pygame.font.Font(None, 100).render("Has ganado", True, (255, 255, 255)), (800, 500))
             else:
@@ -316,21 +316,13 @@ class Interfaz():
 
     def visualArma(self):
         self.armaP = None
-        arma = self.hero.cuerpo.obtenermDerecha()
+        arma = self.hero.cuerpo.getKatana()
         if arma is not None:
             pos_x = self.heroM[0] + 32
             pos_y = self.heroM[1] + 25
             if arma.eskatana():
                 self.armaP = ("katana", (pos_x, pos_y))
 
-    def visualDefensa(self):
-        self.defensaP = None
-        defensa = self.hero.cuerpo.obtenermIzquierda()
-        if defensa is not None:
-            pos_x = self.heroM[0] + 10
-            pos_y = self.heroM[1] + 35
-            if defensa.esEscudo():
-                self.defensaP = ("Escudo", (pos_x, pos_y))
 
     def visualBicho(self, bicho):
         self.npcP[bicho.num] = ()
@@ -369,7 +361,7 @@ class Interfaz():
         self.drawContenedorRectangular(hab.forma,1)
     
     def visitarArmario(self,arm):
-        arm.suscribirAbierto(self)
+        arm.subscribeOpen(self)
         self.visualArmario(arm)
 
     def visualArmario(self, arm):
@@ -415,9 +407,7 @@ class Interfaz():
             if obj.esBistec():
                 self.mochila[str(obj)] = ("Bistec", (pos_x, pos_y))
             elif obj.eskatana():
-                material = obj.material
-                tipo_katana = "madera" if material.esMadera() else "metal" if material.esMetal() else "diamante"
-                self.mochila[str(obj)] = ("katana", tipo_katana, (pos_x, pos_y))
+                self.mochila[str(obj)] = ("katana", (pos_x, pos_y))
             elif obj.esEscudo():
                 self.mochila[str(obj)] = ("Escudo", (pos_x, pos_y))
             
@@ -432,9 +422,6 @@ class Interfaz():
         if obj.esEscudo():
             self.visualEscudo(obj)
 
-    def visitarEscudo(self,escudo):
-        escudo.agregarObservadorPosicion(self)
-        self.visualEscudo(escudo)
 
     def visitarBomba(self,bomba):
         bomba.agregarObservadoresActiva(self)
@@ -454,20 +441,8 @@ class Interfaz():
         if katana.padre.esHabitacion():
             punto_x, punto_y = katana.padre.getPunto()
             extent_x = katana.padre.getExtent()[0]
-            
-            if katana.material.esMadera():
-                pos_x = punto_x + 20
-                pos_y = punto_y + extent_x - 100
-                material = "madera"
-            elif katana.material.esMetal():
-                pos_x = punto_x + 120
-                pos_y = punto_y + extent_x - 100
-                material = "metal"
-            elif katana.material.esDiamante():
-                pos_x = punto_x + 220
-                pos_y = punto_y + extent_x - 100
-                material = "diamante"
-            self.katanasP[str(katana)] = (material, (pos_x, pos_y))
+ 
+            self.katanasP[str(katana)] = ((punto_x+extent_x, punto_y))
 
     def visualEscudo(self, escudo):
         self.escudosP[str(escudo)] = (-100, -100)
@@ -498,11 +473,11 @@ class Interfaz():
 
     def visitargate(self,gate):
         if gate.lado1.esHabitacion() and gate.lado2.esHabitacion():
-            gate.suscribirAbierto(self)
+            gate.subscribeOpen(self)
             self.visualgate(gate)
 
     def visitarTunel(self,tunel):
-        pass#No se drawá, solo será jugado por consola.
+        pass
 
     def drawContenedorRectangular(self, forma, escala):
         punto_x, punto_y = forma.punto

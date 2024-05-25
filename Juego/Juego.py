@@ -33,7 +33,7 @@ class Juego():
         return self.laberinto.getHab(id)
         
     def getChildrenPosition(self):
-        return self.prota.posicion.obtenerHijos()
+        return self.prota.posicion.getChildren()
     
     def agregarPersonaje(self, ch):
         self.fase.agregarPersonaje(ch, self)
@@ -88,10 +88,10 @@ class Juego():
             self.terminarHilo(bicho)
     
     def terminarHilo(self, unBicho):
-        unBicho.fallecido()
+        unBicho.fenece()
 
     def personajeMuere(self):
-        print(str(self.prota), " fallece. ¡HAS PERDIDO!")
+        print(str(self.prota.seudonimo), " fallece. ¡HAS PERDIDO!")
         self.hasGanado = False
         self.terminarBichos()
 
@@ -99,7 +99,7 @@ class Juego():
         
     def openDoors(self):
         def op(x):
-            return x.open() if x.esPuerta() else None
+            return x.abrir() if x.esPuerta() else None
         self.laberinto.recorrer(op)
 
     def cerrarPuertas(self):
@@ -110,7 +110,7 @@ class Juego():
 
     def cerrarPuerta(self,hab1,hab2):
         def op(x):
-            return x.cerrar() if x.esPuerta() and (x.lado1.num is hab1 or x.lado2.num is hab1) and (x.lado1.num is hab2 or x.lado2.num is hab2) else None
+            return x.cerrar() if x.esPuerta() and (x.lado1.ref is hab1 or x.lado2.ref is hab1) and (x.lado1.ref is hab2 or x.lado2.ref is hab2) else None
         self.laberinto.recorrer(op)
 
     def lanzarBichos(self):
@@ -234,7 +234,7 @@ class Juego():
         p3.lado2 = hab3
 
         bomba = obj.fabricarBomba()
-        bomba.component = p3
+        bomba.componentes = p3
 
         p4.lado1 = hab3
         p4.lado2 = hab1
@@ -291,7 +291,7 @@ class Juego():
         p3.lado2 = hab3
 
         bomba = self.fabricarBomba()
-        bomba.component = p3
+        bomba.componentes = p3
 
         p4.lado1 = hab3
         p4.lado2 = hab1

@@ -4,8 +4,8 @@ import time
 class Perezoso(Modo):
     
     def atacar(self,unBicho):
-        unBicho.atacar()
-        unBicho.cambiarModo()
+        unBicho.actuar()
+        unBicho.cambiar()
     
     def dormir(self):
         time.sleep(6)
