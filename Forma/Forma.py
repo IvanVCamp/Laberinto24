@@ -1,4 +1,3 @@
-
 class Forma():
     
     def __init__(self):

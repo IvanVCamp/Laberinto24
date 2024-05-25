@@ -20,12 +20,12 @@ class Armario(Container):
 
     def notifySubs(self):
         for obs in self.observaciones.opened:
-            obs.muestraArmario(self)
+            obs.visualArmario(self)
 
     def abrir(self, x):
         self.op_puertas(x, operacion="abrir")
 
-    def cerrar(self, x):
+    def close(self, x):
         self.op_puertas(x, operacion="cerrar")
 
     def estaAbierto(self):

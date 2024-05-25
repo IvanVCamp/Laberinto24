@@ -9,8 +9,8 @@ class Tunel(Leaf):
     def entrar(self, e):
         if self.laberinto is None:
             self.laberinto = e.juego.clonarLaberinto()
-            hab = self.laberinto.obtenerHabitacion(self.padre.num)
-            for hijo in hab.hijos:
+            hab = self.laberinto.getHab(self.padre.num)
+            for hijo in hab.objChildren:
                 if hijo.esTunel():
                     hijo.laberinto = self.padre
         self.laberinto.entrar(e)

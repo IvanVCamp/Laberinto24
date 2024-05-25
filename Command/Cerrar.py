@@ -1,7 +1,7 @@
 from Command.Command import Command
 
 
-class Abrir(Command):
+class Cerrar(Command):
     
     def ejecutar(self, obj):
         self.receiver.close(obj)

@@ -12,16 +12,16 @@ class Bicho(Ente):
     def set_posicion(self, pos):
         self.posicion = pos
         for observador in self.obsPosition:
-            observador.mostrar_bicho(self)
+            observador.visualBicho(self)
 
     def set_corazones(self, corazones):
         self.corazones = corazones
         print("Corazones de ", str(self), ":", str(self.corazones))
         for observador in self.obsCorazones: 
-            observador.vidas_bicho(self)
+            observador.corazonesBicho(self)
 
     def buscar_enemigo(self):
-        return self.juego.buscar_personaje(self)
+        return self.juego.visualBicho(self)
 
     def actuar(self):
         while self.esta_vivo():
@@ -55,7 +55,7 @@ class Bicho(Ente):
                 self.modo = Agresivo()
             
                 for observador in self.obsPosition:
-                    observador.mostrar_bicho(self)
+                    observador.visualBicho(self)
 
     def es_bicho(self):
         return True

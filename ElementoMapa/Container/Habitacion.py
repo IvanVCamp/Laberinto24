@@ -8,7 +8,7 @@ class Habitacion(Container):
     
     def aceptar(self, vst):
         print("Visitar habitación ", str(self.num))
-        vst.visitHabitacion(self)
+        vst.visitarHabitacion(self)
         for ch in self.objChildren:
             ch.aceptar(vst)
         self.form.aceptar(vst)

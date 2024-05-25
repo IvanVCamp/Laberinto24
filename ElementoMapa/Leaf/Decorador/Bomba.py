@@ -25,8 +25,8 @@ class Bomba (Decorador):
     
     def entrar(self, e):
         if self.activa:
-            print("¡Ahí va, que te ha EXPLOTAO la boma!")
-
+            print("¡Ahí va, que te ha EXPLOTAO la bombaaaaaa!")
+            print("Explo-explota... ¡Explota mi corazón! <3=-1")
             calculo=e.corazones-self.damage
             e.setCorazones(calculo)
 
@@ -36,7 +36,7 @@ class Bomba (Decorador):
                 if co.esEntrar():
                     self.commands.remove(co)
             for obs in self.obsActiva:
-                obs.mostrarActiva(self)
+                obs.visualBomba(self)
         else:
             if self.componente is not None:
                 self.componente.entrar(e)
