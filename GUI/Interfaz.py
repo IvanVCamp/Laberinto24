@@ -72,7 +72,7 @@ class Interfaz():
             y_real = pt[1] * self.height
             hijo.setExtent((self.width, self.height))
             hijo.setPunto((x_real, y_real))
-            
+
         self.drawMaze()
 
 
@@ -192,16 +192,16 @@ class Interfaz():
             pygame.display.update()
 
         # Cargar imágenes
-        heroe = cargar_imagen("gui/img/prota.png", (self.windw // 12, self.windw // 12))
+        heroe = cargar_imagen("GUI/img/prota.png", (self.windw // 12, self.windw // 12))
         colorFondo = (58, 66, 70)
-        npcA = cargar_imagen("gui/img/bicho-agresivo.png", (self.windw // 13, self.windw // 13))
-        npcP = cargar_imagen("gui/img/bicho-perezoso.png", (self.windw // 13, self.windw // 13))
-        Bistec = cargar_imagen("gui/img/Bistec.png", (self.windw // 15, self.windw // 15))
-        ktn = cargar_imagen("gui/img/katana.png", (self.windw // 20, self.windw // 20))
-        bombaA = cargar_imagen("gui/img/bomba_activa.png", (self.windw // 20, self.windw // 20))
-        bombaI = cargar_imagen("gui/img/bomba_inactiva.png", (self.windw // 20, self.windw // 20))
-        armarioCerrao = cargar_imagen("gui/img/closedwardrobe.png", (self.windw // 12, self.windw // 12))
-        armarioOpened = cargar_imagen("gui/img/openwardrobe.png", (self.windw // 12, self.windw // 12))
+        npcA = cargar_imagen("GUI/img/bicho-agresivo.png", (self.windw // 13, self.windw // 13))
+        npcP = cargar_imagen("GUI/img/bicho-perezoso.png", (self.windw // 13, self.windw // 13))
+        Bistec = cargar_imagen("GUI/img/Bistec.png", (self.windw // 15, self.windw // 15))
+        ktn = cargar_imagen("GUI/img/katana.png", (self.windw // 20, self.windw // 20))
+        bombaA = cargar_imagen("GUI/img/bomba_activa.png", (self.windw // 20, self.windw // 20))
+        bombaI = cargar_imagen("GUI/img/bomba_inactiva.png", (self.windw // 20, self.windw // 20))
+        armarioCerrao = cargar_imagen("GUI/img/closedwardrobe.png", (self.windw // 12, self.windw // 12))
+        armarioOpened = cargar_imagen("GUI/img/openwardrobe.png", (self.windw // 12, self.windw // 12))
 
         visualMochila = False
         visualCuerpo = False
@@ -236,9 +236,9 @@ class Interfaz():
         self.juego.terminarnpc()
 
         # Mostrar imágenes de final del juego
-        heroe = cargar_imagen("gui/img/prota.png", (self.windw // 2, self.windw // 2))
-        npcA = cargar_imagen("gui/img/bicho-agresivo.png", (self.windw // 2, self.windw // 2))
-        npcP = cargar_imagen("gui/img/bicho-perezoso.png", (self.windw // 2, self.windw // 2))
+        heroe = cargar_imagen("GUI/img/prota.png", (self.windw // 2, self.windw // 2))
+        npcA = cargar_imagen("GUI/img/bicho-agresivo.png", (self.windw // 2, self.windw // 2))
+        npcP = cargar_imagen("GUI/img/bicho-perezoso.png", (self.windw // 2, self.windw // 2))
 
         while self.juego.fase.esFinal() and running:
             for event in pygame.event.get():
