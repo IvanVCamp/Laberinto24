@@ -9,4 +9,4 @@ class Agresivo(Modo):
         return True
     
     def __str__(self):
-        return "kamikaze agresivo-salvaje:"
+        return "Soy un lagarto kamikaze agresivo-salvaje"

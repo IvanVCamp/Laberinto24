@@ -21,7 +21,7 @@ class Laberinto(Container):
     def accept(self, visitante):
         print("Recorrer laberinto.")
         for ch in self.objChildren:
-            ch.accept(visitante)
+            ch.aceptar(visitante)
 
     
     def __str__(self):

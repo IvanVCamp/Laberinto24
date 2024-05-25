@@ -14,25 +14,25 @@ class Suroeste(Orientacion):
         return Suroeste.__instance
     
     def obtenerElementoEn(self,cont):
-        return cont.norte
+        return cont.suroeste
     
     def calcularPosicionDesde(self,forma):
         unPunto = (forma.punto[0]-1,forma.punto[1]+1)
-        forma.norte.calcularPosicionDesde(forma,unPunto)
+        forma.suroeste.calcularPosicionDesde(forma,unPunto)
     
     def aceptar(self,visitor,forma):
         print("We wuz kangz.")
-        forma.norte.aceptar(visitor)
+        forma.suroeste.aceptar(visitor)
     
     def ponerElementoEn(self,em,cont):
-        cont.norte = em
+        cont.suroeste = em
     
     def moverA(self,ente):
         cont = ente.posicion.forma
-        cont.norte.entrar(ente)
+        cont.suroeste.entrar(ente)
 
     def obtenerComandosDe(self,forma,ente):
-        return forma.norte.obtenerComandos(ente)
+        return forma.suroeste.obtenerComandos(ente)
 
     def recorrerEn(self,cont,func):
-        cont.norte.recorrer(func)
+        cont.suroeste.recorrer(func)

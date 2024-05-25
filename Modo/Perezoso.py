@@ -14,4 +14,4 @@ class Perezoso(Modo):
         return True
     
     def __str__(self):
-        return "¡An-da-luuuuu-ces, le-van-taaaoos!"
+        return "¡Qué pereza me da la vida!"

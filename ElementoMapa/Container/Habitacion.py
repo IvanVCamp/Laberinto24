@@ -10,8 +10,8 @@ class Habitacion(Container):
         print("Visitar habitación ", str(self.num))
         vst.visitHabitacion(self)
         for ch in self.objChildren:
-            ch.accept(vst)
-        self.form.accept(vst)
+            ch.aceptar(vst)
+        self.form.aceptar(vst)
 
     def esHabitacion(self):
         return True
