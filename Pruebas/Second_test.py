@@ -1,5 +1,7 @@
 import unittest
 import sys
+import os
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..', 'LaberintoBuilder')))
 from LaberintoBuilder.Director import Director
 from Ente.Character import Character
 class Second_test(unittest.TestCase):
@@ -187,4 +189,5 @@ class Second_test(unittest.TestCase):
         self.assertEqual(Katana1.commands[0].receiver,Katana1)
         print("TEST DE OBJETOS SUPERADO.\n")
         
-unittest.main()
+if __name__ == '__main__':
+    unittest.main()

@@ -1,3 +1,9 @@
+import os
+import sys
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..', 'ElementoMapa')))
+
+
+
 from ElementoMapa.Container.Laberinto import Laberinto
 from ElementoMapa.Puerta import Puerta
 from ElementoMapa.Container.Habitacion import Habitacion

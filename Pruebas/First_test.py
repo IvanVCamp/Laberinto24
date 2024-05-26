@@ -1,6 +1,8 @@
 import unittest
 import sys
+import os
 from io import StringIO
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..', 'LaberintoBuilder')))
 from LaberintoBuilder.Director import Director
 from Ente.Character import Character
 
@@ -404,4 +406,5 @@ class First_test(unittest.TestCase):
         self.juego.fase.esFinal()#El juego ha terminado al matar a los bichos.
         print("TEST FUNCIONALES SUPERADAS.")
         
-unittest.main()
+if __name__ == '__main__':
+    unittest.main()
