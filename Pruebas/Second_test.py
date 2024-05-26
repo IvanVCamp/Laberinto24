@@ -1,7 +1,7 @@
 import unittest
 import sys
 import os
-sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..', 'LaberintoBuilder')))
+sys.path.append('c:/Users/User/Desktop/Proyecto Diseño de Software/practicas/dsoft/Laberinto24')
 from LaberintoBuilder.Director import Director
 from Ente.Character import Character
 class Second_test(unittest.TestCase):

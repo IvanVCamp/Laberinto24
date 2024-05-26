@@ -3,8 +3,8 @@ from ElementoMapa.Container.Container import Container
 class Habitacion(Container):
 
     def entrar(self, obj):
-        obj.setPosition(self)
-        print(str(obj)," se encuentra ahora en ",self.ref,".")
+        obj.setPosicion(self)
+        print(str(obj)," se encuentra ahora en ",self.ref)
     
     def aceptar(self, vst):
         print("Visitar habitación ", str(self.num))

@@ -5,6 +5,7 @@ from abc import ABC,abstractmethod
 class Artefacto(ElementoMapa, ABC):
     
     def __init__(self):
+        super().__init__()
         self.ref = None
         self.obsPos = []
         

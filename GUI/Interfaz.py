@@ -1,4 +1,4 @@
-from Builder.Director import Director
+from LaberintoBuilder.Director import Director
 from Ente.Character import Character
 import pygame # type: ignore
 
@@ -142,16 +142,16 @@ class Interfaz():
         def renderizar_objetos():
             self.window.blit(self.capaLaberinto, (0, 0))
             for gate in self.gatesP.values():
-                if gate[1] == "abierta":
+                if gate[1] == "Abierta":
                     pygame.draw.rect(self.window, colorFondo, (gate[0][0] - 10, gate[0][1] - 10, 60, 60))
             self.window.blit(self.corazonesP, (self.windh - 450, 20))
             for bicho in self.npcP.values():
-                if bicho[0] == '-Agresivo:':
+                if bicho[0] == 'Soy un lagarto kamikaze agresivo-salvaje':
                     self.window.blit(npcA, bicho[1])
-                if bicho[0] == '-Perezoso:':
+                if bicho[0] == '¡Qué pereza me da la vida!':
                     self.window.blit(npcP, bicho[1])
             for armario in self.armariosP.values():
-                if armario[0] == 'abierto':
+                if armario[0] == 'Abierta':
                     self.window.blit(armarioOpened, armario[1])
             for obj in self.mochila.values():
                 if obj[0] == "Bistec":
@@ -408,8 +408,6 @@ class Interfaz():
                 self.mochila[str(obj)] = ("Bistec", (pos_x, pos_y))
             elif obj.eskatana():
                 self.mochila[str(obj)] = ("katana", (pos_x, pos_y))
-            elif obj.esEscudo():
-                self.mochila[str(obj)] = ("Escudo", (pos_x, pos_y))
             
             pos_x += 70
 
@@ -481,8 +479,8 @@ class Interfaz():
 
     def drawContenedorRectangular(self, forma, escala):
         punto_x, punto_y = forma.punto
-        ancho = forma.extent[0] / escala
-        alto = forma.extent[1] / escala
+        ancho = forma.alcance[0] / escala
+        alto = forma.alcance[1] / escala
         
         rectangulo = (punto_x, punto_y, ancho, alto)
         pygame.draw.rect(self.capaLaberinto, (255, 0, 0), rectangulo, 4)

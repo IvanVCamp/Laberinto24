@@ -98,10 +98,10 @@ class LaberintoBuilder():
         armario.addOr(self.fabricarOeste())
         armario.addOr(self.fabricarSur())
 
-        armario.addOr(self.fabricarNorte(),self.fabricarPared())
-        armario.addOr(self.fabricarEste(),self.fabricarPared())
-        armario.addOr(self.fabricarOeste(),self.fabricarPared())
-        armario.addOr(self.fabricarSur(), parent)
+        armario.putElementOn(self.fabricarNorte(),self.fabricarPared())
+        armario.putElementOn(self.fabricarEste(),self.fabricarPared())
+        armario.putElementOn(self.fabricarOeste(),self.fabricarPared())
+        armario.putElementOn(self.fabricarSur(), parent)
 
         obj.addChild(armario)
         return armario
@@ -198,11 +198,11 @@ class LaberintoBuilder():
         com.receiver = door
         door.addCommand(com)
 
-        door.putElementOn(ori1x, door)
-        door.putElementOn(ori2x, door)
+        l1.putElementOn(ori1x, door)
+        l2.putElementOn(ori2x, door)
 
     def fabricarBistecEn(self, obj, ref):
-        obj.add(self.fabricarBistec(ref))
+        obj.addChild(self.fabricarBistec(ref))
 
     def fabricarPared(self):
         return Pared()

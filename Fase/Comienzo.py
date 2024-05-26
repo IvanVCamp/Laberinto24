@@ -4,7 +4,7 @@ from Fase.Jugando import Jugando
 
 class Comienzo(Fase):
     
-    def agregarPersonaje(self, ch, game):
+    def addCharacter(self, ch, game):
         game.puedeAgregarPersonaje(ch)
 
     def lanzarBichos(self,juego):

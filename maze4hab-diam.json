@@ -5,7 +5,7 @@
             {"tipo":"armario","num":1,"hijos":[{"tipo":"bistec","num":1},{"tipo":"bistec","num":2}]}
         ]},
         {"tipo":"habitacion","num":2,"hijos":[
-            {"tipo":"espada","num":1}
+            {"tipo":"katana","num":1}
         ]},
         {"tipo":"habitacion","num":3,"hijos":[
             {"tipo":"bomba","num":1}

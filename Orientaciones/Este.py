@@ -13,7 +13,7 @@ class Este(Orientacion):
         
         return Este.__instance
     
-    def obtenerElementoEn(self,cont):
+    def getElement(self,cont):
         return cont.este
     
     def verPosicion(self,forma):

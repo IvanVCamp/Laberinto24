@@ -15,3 +15,7 @@ class Soltar(Command):
     
     def __str__(self):
         return "Suelta el " + str(self.receptor)
+    def equals(self,comando):
+        if comando.esSoltar():
+            return True
+        return False

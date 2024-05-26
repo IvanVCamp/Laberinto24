@@ -1,6 +1,6 @@
 from Ente.Ente import Ente
 from Cuerpo.Cuerpo import Cuerpo
-
+from Artefactos.Mochila import Mochila
 class Character(Ente):
     
     def __init__(self):
@@ -29,7 +29,7 @@ class Character(Ente):
         for obs in self.obsCorazones:
             obs.visualcorazoneshero()
     
-    def enteMuere(self):
+    def fenece(self):
         self.juego.personajeMuere()
 
     def buscarEnemigo(self):

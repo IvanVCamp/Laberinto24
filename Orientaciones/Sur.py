@@ -16,7 +16,7 @@ class Sur(Orientacion):
     def getElement(self,cont):
         return cont.Sur
     
-    def calcularPosicionDesde(self,forma):
+    def verPosicion(self,forma):
         unPunto = (forma.punto[0],forma.punto[1]+1)
         forma.Sur.calcularPosicionDesde(forma,unPunto)
     

@@ -20,7 +20,7 @@ class Bicho(Ente):
         for observador in self.obsCorazones: 
             observador.corazonesBicho(self)
 
-    def buscar_enemigo(self):
+    def buscarEnemigo(self):
         return self.juego.visualBicho(self)
 
     def actuar(self):

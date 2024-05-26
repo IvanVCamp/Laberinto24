@@ -11,3 +11,7 @@ class Coger(Command):
     
     def __str__(self):
         return "Coger"
+    def equals(self,comando):
+        if comando.esCoger():
+            return True
+        return False

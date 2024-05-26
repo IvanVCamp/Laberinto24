@@ -11,3 +11,7 @@ class Entrar(Command):
     
     def __str__(self):
         return "¡Entrando!"
+    def equals(self,comando):
+        if comando.esEntrar():
+            return True
+        return False

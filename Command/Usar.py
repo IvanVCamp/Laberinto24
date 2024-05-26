@@ -11,3 +11,7 @@ class Usar(Command):
     
     def __str__(self):
         return "Utilícese"
+    def equals(self,comando):
+        if comando.esUsar():
+            return True
+        return False

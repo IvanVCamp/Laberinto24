@@ -16,7 +16,7 @@ class Sureste(Orientacion):
     def getElement(self,cont):
         return cont.sureste
     
-    def calcularPosicionDesde(self,forma):
+    def verPosicion(self,forma):
         unPunto = (forma.punto[0]+1,forma.punto[1]+1)
         forma.sureste.calcularPosicionDesde(forma,unPunto)
     

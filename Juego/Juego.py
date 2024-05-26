@@ -13,7 +13,7 @@ from Modo.Agresivo import Agresivo
 from Modo.Perezoso import Perezoso
 from Fase.Comienzo import Comienzo
 from Fase.Final import Final
-from Artefactos import Mochila
+from Artefactos.Mochila import Mochila
 import threading
 import copy
 
@@ -36,7 +36,7 @@ class Juego():
         return self.prota.posicion.getChildren()
     
     def agregarPersonaje(self, ch):
-        self.fase.agregarPersonaje(ch, self)
+        self.fase.addCharacter(ch, self)
 
     def puedeAgregarPersonaje(self, ch):
         ch.juego = self

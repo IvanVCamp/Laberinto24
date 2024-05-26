@@ -6,7 +6,7 @@ class Fase(ABC):
         pass
     
     @abstractmethod
-    def lanzarLosBichos(self, game):
+    def lanzarBichos(self, game):
         pass
 
     def esComienzo(self):

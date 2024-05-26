@@ -6,7 +6,7 @@ class Armario(Container):
         super().__init__(ref)
         self.observaciones = []
 
-    def accept(self, visitante):
+    def aceptar(self, visitante):
         print("Visitando Sodoma (el armario, para quien le cueste pillarlo)")
         visitante.visitArmario(self)
        
@@ -48,7 +48,7 @@ class Armario(Container):
         return True
 
     def __str__(self):
-        return "Armario " + str(self.num)
+        return "Armario " + str(self.ref)
 
     def _obtener_puertas(self):
         return [ori.getElementOn(self.form) for ori in self.form.orientaciones if ori.getElementOn(self.forma).esPuerta()]

@@ -20,10 +20,11 @@ class Director():
     def getJuego(self):
         return self.builder.obtenerJuego()
 
+
     def readConfig(self,unArchivo):
 
         with open(unArchivo, 'r', encoding='utf8') as file:
-            self.diccionarion = json.load(file)
+            self.diccionario = json.load(file)
 
     def iniBuilder(self):
         if self.diccionario['forma'] == "cuadrado":
@@ -53,10 +54,10 @@ class Director():
         if dic['tipo'] == 'tunel':
             padre = self.builder.fabricarTunelEn(parent)
 
-        if dic['tipo'] == 'banana':
+        if dic['tipo'] == 'bistec':
             padre = self.builder.fabricarBistecEn(parent, dic['num'])
-        if dic['tipo'] == 'espada':
-            padre = self.builder.fabricarKatanaEn(parent, dic['num'], dic['material'])
+        if dic['tipo'] == 'katana':
+            padre = self.builder.fabricarKatanaEn(parent, dic['num'])
         
         #Hijos
         hijos = dic.get('hijos',[])

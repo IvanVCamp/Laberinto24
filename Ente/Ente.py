@@ -105,5 +105,5 @@ class Ente(ABC):
         return False
     
     @abstractmethod
-    def Fenece():
+    def fenece():
         pass

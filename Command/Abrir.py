@@ -11,3 +11,7 @@ class Abrir(Command):
     
     def __str__(self):
         return "Abrir"
+    def equals(self,comando):
+        if comando.esAbrir():
+            return True
+        return False

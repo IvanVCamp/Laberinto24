@@ -3,11 +3,11 @@ from abc import ABC, abstractmethod
 class Orientacion(ABC):
 
     @abstractmethod
-    def obtenerElementoEn(self,cont):
+    def getElement(self,cont):
         pass
 
     @abstractmethod
-    def ponerElementoEn(self,em,cont):
+    def putElementOn(self,em,cont):
         pass
     
     @abstractmethod
@@ -15,7 +15,7 @@ class Orientacion(ABC):
         pass
     
     @abstractmethod
-    def calcularPosicionDesde(self,forma):
+    def verPosicion(self,forma):
         pass
 
     @abstractmethod

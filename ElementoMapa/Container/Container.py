@@ -48,7 +48,7 @@ class Container (ElementoMapa):
         return juegoCommands
 
     def addChild(self, obj):
-        obj.parent = self
+        obj.padre = self
         self.objChildren.append(obj)
 
     def putElementOn(self, obj1, obj2):

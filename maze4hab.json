@@ -6,10 +6,10 @@
             {"tipo":"bomba","num":1}
         ]},
         {"tipo":"habitacion","num":2,"hijos":[
-            {"tipo":"espada","num":1}
+            {"tipo":"katana","num":1}
         ]},
         {"tipo":"habitacion","num":3,"hijos":[
-            {"tipo":"espada","num":1},
+            {"tipo":"katana","num":1},
             {"tipo":"tunel"}
         ]},
         {"tipo":"habitacion","num":4,"hijos":[
@@ -17,7 +17,7 @@
             {"tipo":"armario","num":2,"hijos":[]}
         ]}
     ],
-    "puertas":[[1,"Sur",2,"Norte"],[2,"Este",4,"Oeste"],[4,"Norte",3,"Sur"],[3,"Oeste",1,"Este"]],
+    "puertas":[[1, "Sur",2,"Norte"],[2,"Este",4,"Oeste"],[4,"Norte",3,"Sur"],[3,"Oeste",1,"Este"]],
     "bichos":[{"modo":"agresivo","posicion":1},{"modo":"perezoso","posicion":2},{"modo":"agresivo","posicion":3},{"modo":"perezoso","posicion":4}]
     
 }
