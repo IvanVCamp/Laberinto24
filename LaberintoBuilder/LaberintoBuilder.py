@@ -1,9 +1,5 @@
 import os
 import sys
-sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..', 'ElementoMapa')))
-
-if ruta_base:= os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..')) not in sys.path:
-    sys.path.append(ruta_base)
 
 from ElementoMapa.Container.Laberinto import Laberinto
 from ElementoMapa.Puerta import Puerta
