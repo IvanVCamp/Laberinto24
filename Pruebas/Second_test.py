@@ -2,7 +2,6 @@ import unittest
 import sys
 from LaberintoBuilder.Director import Director
 from Ente.Character import Character
-
 class Second_test(unittest.TestCase):
 
     def setUp(self):
