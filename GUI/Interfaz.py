@@ -1,4 +1,4 @@
-from Builder.Builder import Director
+from Builder.Director import Director
 from Ente.Character import Character
 import pygame # type: ignore
 

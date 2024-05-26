@@ -22,7 +22,7 @@ class Forma():
         for o in self.orientaciones:
             o.verPosicion(self)
     
-    def aceptar(self,visitor):
+    def accept(self,visitor):
 
         for o in self.orientaciones:
             o.accept(visitor, self)

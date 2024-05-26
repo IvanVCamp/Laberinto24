@@ -1,5 +1,5 @@
 from Forma.Diamond import Diamond
-from Builder.LaberintoBuilder import LaberintoBuilder
+from LaberintoBuilder.LaberintoBuilder import LaberintoBuilder
 from ElementoMapa.Container.Habitacion import Habitacion
 from Orientaciones.Noreste import Noreste
 from Orientaciones.Noroeste import Noroeste

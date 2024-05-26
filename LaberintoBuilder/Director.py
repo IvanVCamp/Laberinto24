@@ -1,5 +1,5 @@
-from Builder.LaberintoBuilder import LaberintoBuilder
-from Builder.LaberintoDiamondBuilder import LaberintoDiamondBuilder
+from LaberintoBuilder.LaberintoBuilder import LaberintoBuilder
+from LaberintoBuilder.LaberintoDiamondBuilder import LaberintoDiamondBuilder
 import json
 
 class Director():
