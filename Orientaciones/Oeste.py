@@ -28,7 +28,7 @@ class Oeste(Orientacion):
         cont.oeste = em
     
     def moverA(self,ente):
-        cont = ente.posicion.forma
+        cont = ente.posicion.form
         cont.oeste.entrar(ente)
 
     def getCommands(self,forma,ente):

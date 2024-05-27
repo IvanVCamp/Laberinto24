@@ -1,4 +1,6 @@
 from abc import ABC
+import sys
+sys.setrecursionlimit(150000)
 class Estado(ABC):
     
     def actua(unBicho):

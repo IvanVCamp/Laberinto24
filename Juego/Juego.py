@@ -26,6 +26,7 @@ class Juego():
         self.bichos = []
         self.prototype = None
         self.threads={}
+        self.lock = threading.Lock()
         self.fase = Comienzo()
         self.hasGanado = True
 
@@ -114,7 +115,8 @@ class Juego():
         self.laberinto.recorrer(op)
 
     def lanzarBichos(self):
-        self.fase.lanzarBichos(self)
+        juego = self
+        self.fase.lanzarBichos(juego)
 
     def puedeLanzarBichos(self):
         for bicho in self.bichos:
@@ -126,14 +128,28 @@ class Juego():
         unBicho.numero_identificador = len(self.bichos)
 
     def lanzarHilo(self, bicho):
-        th = threading.Thread(target=bicho.actua)
-        th.start()
-        self.agregarHilo(bicho, th)
+        with self.lock:  # Asegura que el acceso al diccionario es thread-safe
+            if bicho.numero_identificador not in self.threads or not self.threads[bicho.numero_identificador].is_alive():
+                # Solo crea un nuevo hilo si no hay uno activo ya para este bicho
+                th = threading.Thread(target=self.envoltura_actuar, args=(bicho,))
+                th.start()
+                self.agregarHilo(bicho, th)
+            else:
+                print(f"Ya hay un hilo activo para el bicho {bicho.numero_identificador}")
 
     def agregarHilo(self,bicho,hilo):
         self.threads[bicho.numero_identificador]=hilo
 
-
+    def envoltura_actuar(self, bicho):
+            try:
+                bicho.actuar()
+            except Exception as e:
+                print(f"Error al actuar: {e}")
+            finally:
+                with self.lock:
+                    # Limpiar el hilo terminado del diccionario
+                    if bicho.numero_identificador in self.threads:
+                        del self.threads[bicho.numero_identificador]
     def fabricarLaberinto(self):
         return Laberinto()
     

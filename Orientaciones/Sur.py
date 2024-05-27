@@ -28,7 +28,7 @@ class Sur(Orientacion):
         cont.sur = em
     
     def moverA(self,ente):
-        cont = ente.posicion.forma
+        cont = ente.posicion.form
         cont.sur.entrar(ente)
 
     def getCommands(self,forma,ente):

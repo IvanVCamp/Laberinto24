@@ -2,7 +2,8 @@ from Ente.Ente import Ente
 from Estado.Muerto import Muerto
 from Modo.Agresivo import Agresivo
 import random
-
+import sys
+sys.setrecursionlimit(150000)
 class Bicho(Ente):
 
     def __init__(self):
@@ -24,14 +25,14 @@ class Bicho(Ente):
         return self.juego.visualBicho(self)
 
     def actuar(self):
-        while self.esta_vivo():
-            self.estado.actuar(self)
+        while self.estaVivo():
+            self.estado.actua(self)
 
     def obtener_orientacion_aleatoria(self):
-        return self.posicion.obtener_orientacion_aleatoria()
+        return self.posicion.getRandOri()
     
     def puedeActuar(self):
-        self.modo.actuar(self)
+        self.modo.actua(self)
 
     def ente_muere(self):
         self.fallecido()

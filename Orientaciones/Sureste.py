@@ -28,7 +28,7 @@ class Sureste(Orientacion):
         cont.sureste = em
     
     def moverA(self,ente):
-        cont = ente.posicion.forma
+        cont = ente.posicion.form
         cont.sureste.entrar(ente)
 
     def getCommands(self,forma,ente):

@@ -9,7 +9,7 @@ class Tunel(Leaf):
     def entrar(self, e):
         if self.laberinto is None:
             self.laberinto = e.juego.clonarLaberinto()
-            hab = self.laberinto.getHab(self.padre.num)
+            hab = self.laberinto.getHab(self.padre.ref)
             for hijo in hab.objChildren:
                 if hijo.esTunel():
                     hijo.laberinto = self.padre

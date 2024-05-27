@@ -1,8 +1,9 @@
 from LaberintoBuilder.Director import Director
 from Ente.Character import Character
-from GUI import Interfaz
+# from GUI import Interfaz
 import os
-
+import sys
+# Para evitar errores de recursión
 nombre = input("Nick del personaje: ")
 personaje = Character()
 opcion = input("Opción de juego:\n    1.Jugar con GUI\n    2.Jugar en consola\nSelecciona una opción: ")
@@ -17,9 +18,9 @@ for js in jsons:
     i += 1
 json = input("Selecciona un json: ")
 json = jsons[int(json)]
-if opcion == "1":
-    vista = Interfaz()
-    vista.starJuego('json/'+json,nombre)
+# if opcion == "1":
+#    vista = Interfaz()
+#    vista.startJuego('json/'+json,nombre)
 
 if opcion == "2":
     director = Director()
@@ -38,6 +39,7 @@ if opcion == "2":
             print("¿Qué deseas hacer?\n    A. Atacar\n    1. Mover al noreste\n    2. Mover al noroeste\n    3. Mover al sureste\n    4. Mover al suroeste\n",
               "   5. Abrir Puertas\n    6. Lanzar bichos\n    7. Mostrar comandos bolsa\n    8. Mostrar comandos cuerpo\n",
               "   H. Obtener hijos de la posición del personaje\n    C. Obtener Comandos\n    I. Mostrar inventario")
+        sys.stdin.flush()
         eleccion=input()
         if forma == "Cuadrado":
             if eleccion == "1":
@@ -60,14 +62,15 @@ if opcion == "2":
         if eleccion == "5":
             juego.openDoors()
         if eleccion == "6":
-            juego.lanzarBichos()
+            juego.fabricarBichoAgresivo(2)
         if eleccion == "7":
             i = 0
-            coms=personaje.mochila.getCommands(personaje)
+            coms=personaje.mochila.obtenerComandos(personaje)
             if len(coms) > 0:
                 for com in coms:
                     print("    ",i,". ",com,"\n")
                     i += 1
+                sys.stdin.flush()
                 el = input()
                 el = int(el)
                 coms[el].ejecutar(personaje)
@@ -75,6 +78,7 @@ if opcion == "2":
                 print("No hay objetos en la bolsa.")
         if eleccion == "8":
             print("    1. ¿De verdad quieres usar el brazo ataque?")
+            sys.stdin.flush()
             el = input()
             el = int(el)
             if el == 1:
@@ -97,15 +101,19 @@ if opcion == "2":
             for obj in personaje.mochila.children:
                 print("    ",i,". ",obj,"\n")
                 i+=1
+            
+
+            sys.stdin.flush()              
             el = input()
             el = int(el)
             i = 0
-            for com in personaje.mochila.children[el].getCommands(personaje):
+            for com in personaje.mochila.children[el].obtenerComandos(personaje):
                 print("    ",i,". ",com,"\n")
                 i += 1
+            sys.stdin.flush()
             ele = input()
             ele = int(ele)
-            personaje.mochila.children[el].getCommands(personaje)[ele].ejecutar(personaje)
+            personaje.mochila.children[el].obtenerComandos(personaje)[ele].ejecutar(personaje)
 
 
         if eleccion == "h" or eleccion == "H":
@@ -116,6 +124,7 @@ if opcion == "2":
                 for hijo in hijos:
                     print("    ",i,". ",hijo)
                     i+=1
+                sys.stdin.flush()
                 el = input()
                 el = int(el)
                 if el < len(hijos) and el >= 0:
@@ -133,6 +142,7 @@ if opcion == "2":
                 for com in coms:
                     print("    ",i,". ",com)
                     i+=1
+                sys.stdin.flush()
                 el = input()
                 el = int(el)
                 if el < len(coms) and el >= 0:

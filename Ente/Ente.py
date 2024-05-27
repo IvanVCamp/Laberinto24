@@ -7,7 +7,8 @@ from Orientaciones.Noroeste import Noroeste
 from Orientaciones.Sureste import Sureste
 from Orientaciones.Suroeste import Suroeste
 from Estado.Vivo import Vivo
-
+import sys
+sys.setrecursionlimit(150000)
 from abc import ABC,abstractmethod
 class Ente(ABC):
 
@@ -73,7 +74,7 @@ class Ente(ABC):
         return self.estado.estaVivo()
     
     def irA(self,unaOr):
-        unaOr.ir(self)
+        unaOr.moverA(self)
 
     def irAlNorte(self):
         self.irA(Norte.obtenerInstancia())
