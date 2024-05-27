@@ -11,6 +11,8 @@ from Orientaciones.Oeste import Oeste
 from Orientaciones.Sur import Sur
 from ElementoMapa.Leaf.Decorador.Bomba import Bomba
 from Artefactos.Katana import Katana
+from Artefactos.Mochila import Mochila
+
 from Ente.Bicho import Bicho
 from Modo.Agresivo import Agresivo
 from Modo.Perezoso import Perezoso

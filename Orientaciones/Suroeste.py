@@ -32,7 +32,7 @@ class Suroeste(Orientacion):
         cont.suroeste.entrar(ente)
 
     def getCommands(self,forma,ente):
-        return forma.suroeste.getCommands(ente)
+        return forma.suroeste.obtenerComandos(ente)
 
     def recorrerEn(self,cont,func):
         cont.suroeste.recorrer(func)

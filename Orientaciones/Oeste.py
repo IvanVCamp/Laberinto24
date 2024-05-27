@@ -14,25 +14,25 @@ class Oeste(Orientacion):
         return Oeste.__instance
     
     def getElement(self,cont):
-        return cont.Oeste
+        return cont.oeste
     
     def verPosicion(self,forma):
         unPunto = (forma.punto[0]-1,forma.punto[1])
-        forma.Oeste.calcularPosicionDesde(forma,unPunto)
+        forma.oeste.calcularPosicionDesde(forma,unPunto)
     
     def aceptar(self,visitor,forma):
         print("Has puesto un pie en la Vía de la Plata.")
-        forma.Oeste.aceptar(visitor)
+        forma.oeste.aceptar(visitor)
     
     def putElementOn(self,em,cont):
-        cont.Oeste = em
+        cont.oeste = em
     
     def moverA(self,ente):
         cont = ente.posicion.forma
-        cont.Oeste.entrar(ente)
+        cont.oeste.entrar(ente)
 
     def getCommands(self,forma,ente):
-        return forma.Oeste.getCommands(ente)
+        return forma.oeste.obtenerComandos(ente)
 
     def recorrerEn(self,cont,func):
-        cont.Oeste.recorrer(func)
+        cont.oeste.recorrer(func)

@@ -8,6 +8,7 @@ class Laberinto(Container):
     def __init__(self):
         super().__init__(0)
 
+
     def agregarHabitacion(self, hab):
         self.objChildren.append(hab)
 
@@ -20,7 +21,7 @@ class Laberinto(Container):
     
     def recorrer(self, x):
         for ch in self.objChildren:
-            ch.recorrer()
+            ch.recorrer(x)
 
     def aceptar(self, visitante):
         print("Recorrer laberinto.")

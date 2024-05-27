@@ -2,7 +2,8 @@
     "forma":"rombo",
     "laberinto":[
         {"tipo":"habitacion","num":1,"hijos":[
-            {"tipo":"armario","num":1,"hijos":[{"tipo":"bistec","num":1},{"tipo":"bistec","num":2}]}
+            {"tipo":"armario","num":1,"hijos":
+                [{"tipo":"bistec","num":1},{"tipo":"bistec","num":2}]}
         ]},
         {"tipo":"habitacion","num":2,"hijos":[
             {"tipo":"katana","num":1}

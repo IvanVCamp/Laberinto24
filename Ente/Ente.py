@@ -12,8 +12,8 @@ from abc import ABC,abstractmethod
 class Ente(ABC):
 
     def __init__(self):
-        self.corazones = 50
-        self.poder = 25
+        self.corazones = 100
+        self.poder = 10
         self.estado = Vivo()
         self.posicion= None
         self.juego = None
@@ -40,23 +40,24 @@ class Ente(ABC):
             unEnte.esAtacadoPor(self)
     
     def esAtacadoPor(self,unEnte):
-        self.estado.esAtacadoPor(self,unEnte)
+        self.estado.enteEsAtacadoPor(self,unEnte)
 
     def puedeSerAtacadoPor(self,unEnte):
+        print("¿Puede ser atacado?")
         self.recalcularVidas(unEnte)
         if self.verificarEstado():
-            self.Fenece()
+            self.fenece()
 
     def recalcularVidas(self, ente):
-        poder_de_ataque = ente.poder
-
         if ente.esPersonaje():
-            arma = ente.obtenerArma()
-            poder_de_ataque += arma.poder
-
-        vidas_resultantes = self.corazones - poder_de_ataque
-        vidas_resultantes = max(0, min(self.corazones, vidas_resultantes))
-        self.setCorazones(vidas_resultantes)
+            arma = ente.obtenerKatana()
+        calc = (self.corazones) - (ente.poder + arma.poder)
+        if calc > self.corazones:
+            self.setCorazones(self.vidas)
+        else:
+            self.setCorazones(calc)
+        if self.corazones < 0:
+            self.setCorazones(0)
     
     def verificarEstado(self):
         if self.corazones == 0:

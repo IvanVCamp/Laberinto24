@@ -32,7 +32,7 @@ class Noreste(Orientacion):
         cont.noreste.entrar(ente)
 
     def getCommands(self,forma,ente):
-        return forma.noreste.getCommands(ente)
+        return forma.noreste.obtenerComandos(ente)
 
     def recorrerEn(self,cont,func):
         cont.noreste.recorrer(func)

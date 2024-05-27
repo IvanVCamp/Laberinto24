@@ -41,7 +41,7 @@ class Container (ElementoMapa):
         juegoCommands.extend(self.commands)
 
         for hijo in self.objChildren:
-            juegoCommands.extend(hijo.getCommands(obj))
+            juegoCommands.extend(hijo.obtenerComandos(obj))
 
         juegoCommands.extend(self.form.getCommands(obj))
         

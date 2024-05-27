@@ -1,10 +1,10 @@
 from ElementoMapa.Container.Container import Container
-
+from ElementoMapa.ElementoMapa import ElementoMapa
 class Habitacion(Container):
 
     def entrar(self, obj):
         obj.setPosicion(self)
-        print(str(obj)," se encuentra ahora en ",self.ref)
+        print("Se encuentra ahora en ",self.ref)
     
     def aceptar(self, vst):
         print("Visitar habitación ", str(self.num))

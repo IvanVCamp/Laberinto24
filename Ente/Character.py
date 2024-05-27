@@ -12,7 +12,7 @@ class Character(Ente):
     def obtenerComandosCuerpo(self):
         return self.cuerpo.obtenerComandos()
     
-    def obtenerEspada(self):
+    def obtenerKatana(self):
         return self.cuerpo.obtenerArma()
 
     def setKatana(self,obj):
@@ -36,7 +36,7 @@ class Character(Ente):
         return self.juego.searchAntagonist()
     
     def obtenerComandos(self,ente):
-        return self.posicion.getCommands(self)
+        return self.posicion.obtenerComandos(self)
     
     def esPersonaje(self):
         return True

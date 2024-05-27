@@ -2,7 +2,7 @@ from Estado.Estado import Estado
 
 class Abierta(Estado):
     
-    def abrir(self):
+    def abrir(self, gate):
         print("¡Puerta abierta!.")
 
     def estaAbierta(self):

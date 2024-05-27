@@ -14,25 +14,25 @@ class Sur(Orientacion):
         return Sur.__instance
     
     def getElement(self,cont):
-        return cont.Sur
+        return cont.sur
     
     def verPosicion(self,forma):
         unPunto = (forma.punto[0],forma.punto[1]+1)
-        forma.Sur.calcularPosicionDesde(forma,unPunto)
+        forma.sur.calcularPosicionDesde(forma,unPunto)
     
     def aceptar(self,visitor,forma):
         print("Has puesto un pie en el territorio Tartessos.")
-        forma.Sur.aceptar(visitor)
+        forma.sur.aceptar(visitor)
     
     def putElementOn(self,em,cont):
-        cont.Sur = em
+        cont.sur = em
     
     def moverA(self,ente):
         cont = ente.posicion.forma
-        cont.Sur.entrar(ente)
+        cont.sur.entrar(ente)
 
     def getCommands(self,forma,ente):
-        return forma.Sur.getCommands(ente)
+        return forma.sur.obtenerComandos(ente)
 
     def recorrerEn(self,cont,func):
-        cont.Sur.recorrer(func)
+        cont.sur.recorrer(func)

@@ -6,7 +6,7 @@ class Bistec(Artefacto):
         super().__init__()
         self.vida = 10
 
-    def esUnBistec(self):
+    def esBistec(self):
         return True
     
     def aceptar(self, vst):
@@ -15,7 +15,7 @@ class Bistec(Artefacto):
 
     def usar(self, o):
         o.setCorazones(o.corazones + self.vida)
-        self.ref.usado(self)
+        o.mochila.usado(self)
 
     def __str__(self):
-        return "Bistec nº: " + str(self.num)
+        return "Bistec nº: " + str(self.ref)

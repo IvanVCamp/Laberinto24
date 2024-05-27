@@ -11,6 +11,9 @@ class Command(ABC):
     def esAbrir(self):
         return False
     
+    def esSoltar(self):
+        return False
+    
     def esCerrar(self):
         return False
     

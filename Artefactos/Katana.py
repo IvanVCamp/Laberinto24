@@ -7,7 +7,7 @@ class Katana(Artefacto):
 
     def __init__(self):
         super().__init__()
-        self.poder = 10
+        self.poder = 25
 
     def esKatana(self):
         return True
@@ -20,10 +20,10 @@ class Katana(Artefacto):
         o.setKatana(self)
         o.mochila.usado(self)
 
-        for c in self.comandos:
+        for c in self.commands:
             if c.esSoltar():
                 self.deleteCommand(c)
-        for c in self.comandos:
+        for c in self.commands:
             if c.esUsar():
                 self.deleteCommand(c)
     
@@ -41,4 +41,4 @@ class Katana(Artefacto):
         self.addCommand(secondAction)
 
     def __str__(self):
-        return "Katana REF nº: " +str(self.num)
+        return "Katana REF nº: " +str(self.ref)

@@ -48,11 +48,11 @@ class Puerta(ElementoMapa):
         print("Visitando una puerta")
         visitor.visitarPuerta(self)
 
-    def abrir(self):
+    def abrir(self, ente = None):
 
         self.estado.abrir(self)
 
-    def puedeAbrirse(self):
+    def puedeAbrirse(self, ente=None):
         self.estado = Abierta()
         self.deleteAbrir()
 
@@ -65,8 +65,8 @@ class Puerta(ElementoMapa):
         self.addCommand(com1)
         self.addCommand(com2)
 
-        self.lado1.notificarSubs()
-        self.lado2.notificarSubs()
+        self.lado1.notifySubs()
+        self.lado2.notifySubs()
         self.notificarSubs()
 
     def notificarSubs(self):
@@ -74,7 +74,7 @@ class Puerta(ElementoMapa):
             obs.mostrar(self)
 
     def deleteAbrir(self):
-        for com in self.comandos:
+        for com in self.commands:
             if com.esAbrir():
                 self.deleteCommand(com)
                 return
@@ -90,8 +90,8 @@ class Puerta(ElementoMapa):
 
         self.addCommand(com)
 
-        self.lado1.notificarSubs()
-        self.lado2.notificarSubs()
+        self.lado1.notifySubs()
+        self.lado2.notifySubs()
         self.notificarSubs()
 
     def deleteClose(self):
@@ -101,7 +101,7 @@ class Puerta(ElementoMapa):
                 return
     
     def deleteEntrar(self):
-        for com in self.cç:
+        for com in self.commands:
             if com.esEntrar():
                 self.deleteCommand(com)
                 return

@@ -19,7 +19,7 @@ class Armario(Container):
         self.observaciones.append(obs)
 
     def notifySubs(self):
-        for obs in self.observaciones.opened:
+        for obs in self.observaciones:
             obs.visualArmario(self)
 
     def abrir(self, x):
@@ -32,17 +32,18 @@ class Armario(Container):
         return any(door.isOpen() for door in self._obtener_puertas())
 
     def getCommands(self, ref):
-        setCommands = self.commands[:]
+        setCommands = []
+        setCommands.extend(self.commands)
 
-        if ref.pos == self:
+        if ref.posicion == self:
             for hijo in self.objChildren:
                 setCommands.extend(hijo.obtenerComandos(ref))
-        setCommands.extend(self.forma.obtenerComandos(ref))
+        setCommands.extend(self.form.getCommands(ref))
 
         return setCommands
     
     def entrar(self, ente):
-        ente.setPosition(self)
+        ente.setPosicion(self)
 
     def esArmario(self):
         return True

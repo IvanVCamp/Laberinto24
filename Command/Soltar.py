@@ -14,7 +14,7 @@ class Soltar(Command):
         return False
     
     def __str__(self):
-        return "Suelta el " + str(self.receptor)
+        return "Suelta el " + str(self.receiver)
     def equals(self,comando):
         if comando.esSoltar():
             return True

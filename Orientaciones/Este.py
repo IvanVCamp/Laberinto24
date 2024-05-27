@@ -32,7 +32,7 @@ class Este(Orientacion):
         cont.este.entrar(ente)
 
     def getCommands(self,forma,ente):
-        return forma.este.getCommands(ente)
+        return forma.este.obtenerComandos(ente)
 
     def recorrerEn(self,cont,func):
         cont.este.recorrer(func)

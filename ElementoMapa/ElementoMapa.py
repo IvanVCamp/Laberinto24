@@ -21,7 +21,7 @@ class ElementoMapa(ABC):
         command.receiver = self
         self.commands.append(command)
 
-    def obtenerComandos(self):
+    def obtenerComandos(self, ente):
         return self.commands
     
     def deleteCommand(self, command):
