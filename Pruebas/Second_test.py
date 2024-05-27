@@ -1,7 +1,7 @@
 import unittest
 import sys
-import os
 from io import StringIO
+import os
 sys.path.append('c:/Users/User/Desktop/Proyecto Diseño de Software/practicas/dsoft/Laberinto24')
 from LaberintoBuilder.Director import Director
 from Ente.Character import Character
@@ -141,7 +141,7 @@ class Second_test(unittest.TestCase):
                 arm1 = hijo
         self.assertEqual(arm1.ref,1)
         self.assertEqual(arm1.padre,pad1)
-        self.assertEqual(len(arm1.objChildren),2)
+        self.assertEqual(len(arm1.objChildren),3)
         self.assertEqual(arm1.form.esRombo(),True)
         self.assertEqual(arm1.form.noroeste.esPared(),True)
         self.assertEqual(arm1.form.noreste.esPared(),True)
@@ -174,12 +174,11 @@ class Second_test(unittest.TestCase):
         hab1 = self.juego.getHab(1)
         #bistec 1
         arm1 = hab1.objChildren[0]
-        print(hab1.objChildren)
-        self.assertEqual((bistec1:=arm1.objChildren[0]).esBistec(),True)
+        self.assertEqual((bistec1:=arm1.objChildren[0]).esbistec(),True)
         self.assertEqual((com1:=bistec1.commands[0]).esCoger(),True)
         self.assertEqual(com1.receiver,bistec1)
         #bistec 2
-        self.assertEqual((bistec2:=arm1.objChildren[0]).esBistec(),True)
+        self.assertEqual((bistec2:=arm1.objChildren[0]).esbistec(),True)
         self.assertEqual((com1:=bistec2.commands[0]).esCoger(),True)
         self.assertEqual(com1.receiver,bistec2)
         #Objetos Habitación 2
